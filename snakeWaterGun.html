@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise2</title>
+    <style>
+        * {
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 1 - S, 2 - W, 3- G 
+
+        // s > w > g > s
+        const choice = ['s', 'w', 'g']
+        var bot = choice[Math.floor(Math.random() * (3-0)) + 0]
+
+        var user = prompt(`Enter choice ${choice} :`)
+
+
+        if (user == 's' || user == 'w' || user == 'g') {
+            if(user == bot) {
+                alert("Draw")
+            } else if ((bot == 's' && user == 'w') || (bot == 'w' && user == 'g') || (bot == 'g' && user == 's')) {
+                alert("Bot win !")
+            } else {
+                alert("You win !")
+            }
+            console.log(`${bot} bot choice ${user} your choice`)
+        } else {
+            alert("Please always insert a valid char apni g*nd masti ko had me rakhe")
+        }
+    </script>
+    
+</body>
+</html>

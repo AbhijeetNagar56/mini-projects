@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Simulation</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .hacker-output {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #0f0;
+            background-color: #001100;
+            box-shadow: 0 0 10px #0f0;
+        }
+        .line {
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: #0f0;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hacker-output" id="output"></div>
+
+    <script>
+        async function hackSimulation() {
+            const output = document.getElementById('output');
+            const lines = [
+                "Initializing Hack program...",
+                "Hacking Ashish's username...",
+                "Username found: ashish17...",
+                "Connecting to facebook..."
+            ];
+
+            for (let i = 0; i < lines.length; i++) {
+                const lineElement = document.createElement('div');
+                lineElement.className = 'line';
+                lineElement.textContent = lines[i];
+                output.appendChild(lineElement);
+                
+                // Show the line with animation
+                setTimeout(() => {
+                    lineElement.classList.add('visible');
+                }, i * 500);
+                
+                // Wait before next line
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+
+        // Start the simulation when page loads
+        document.addEventListener('DOMContentLoaded', hackSimulation);
+    </script>
+</body>
+</html>

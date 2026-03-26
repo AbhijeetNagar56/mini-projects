@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise1</title>
+    <style>
+        * {
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        var randomNumber = Math.floor(Math.random() * (100-1)) + 1
+        var user
+        var attempt = 1
+
+        while(true) {
+            user = Number.parseInt(prompt("Guess a number : "));
+
+            if(user == randomNumber) {
+                alert("Correct")
+                break
+            } else if(user < randomNumber) {
+                alert("Guess a higher number")
+            } else {
+                alert("Guess a lower number")
+            }
+
+            attempt++
+        }
+
+        alert(`completed in ${attempt} attempts`)
+
+    </script>
+    exercise 1
+</body>
+</html>
